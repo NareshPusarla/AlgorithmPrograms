@@ -1,21 +1,31 @@
 package com.bridgelabz.sortingalgorithm;
 
-public class InsertionSort {
+public class InsertionSort<T> {
 	public static void main(String args[]) {
-		int arr[] = { 12, 11, 13, 5, 6, 1, 17};
-		int[] a = sort(arr);
+		Integer arr[] = { 12, 11, 13, 5, 6, 1, 17};
+		String arr1[] = { "Meghana","Naresh","Ishu","Rahul"};
+		
+		Integer[] a = sort(arr);
+		String[] s = sort(arr1);
+		
 
-		for (int i : a)
+		for (Object i : a)
 			System.out.print(i + " ");
 
 		System.out.println();
+		
+		for (Object i : s)
+			System.out.print(i + " ");
+
+		System.out.println();
+
 	}
 
-	public static int[] sort(int arr[]) {
+	public static <T extends Comparable<T>> T[] sort(T arr[]) {
 		int n = arr.length;
 		for (int i = 0; i < n - 1; i++) {
-			int key = arr[i + 1];
-			while (i >= 0 && arr[i] > key) {
+			T key = arr[i + 1];
+			while (i >= 0 && (arr[i].compareTo(key)>0)) {
 				arr[i + 1] = arr[i];
 				i = i - 1;
 			}
